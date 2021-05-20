@@ -1,0 +1,12 @@
+name: valet-travis-languages-testing/rust-example
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+#     # 'sudo' was not transformed because there is no suitable equivalent in GitHub Actions
+    - run: cargo build --verbose
+    - run: cargo build --verbose; cargo test --verbose
